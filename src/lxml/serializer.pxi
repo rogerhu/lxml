@@ -171,8 +171,8 @@ cdef bytes _tostringC14N(element_or_tree, bint exclusive, bint with_comments, in
 
     finally:
          _destroyFakeDoc(doc._c_doc, c_doc)
-         if c_inclusive_ns_prefixes is not NULL:
-            python.PyMem_Free(c_inclusive_ns_prefixes)
+#         if c_inclusive_ns_prefixes is not NULL:
+#            python.PyMem_Free(c_inclusive_ns_prefixes)
 
     if byte_count < 0 or c_buffer is NULL:
         if c_buffer is not NULL:
@@ -547,8 +547,8 @@ cdef _tofilelikeC14N(f, _Element element, bint exclusive, bint with_comments,
                 u"File or filename expected, got '%s'" % funicode(python._fqtypename(f))
     finally:
         _destroyFakeDoc(c_base_doc, c_doc)
-        if c_inclusive_ns_prefixes is not NULL:
-            python.PyMem_Free(c_inclusive_ns_prefixes)
+#        if c_inclusive_ns_prefixes is not NULL:
+#            python.PyMem_Free(c_inclusive_ns_prefixes)
 
     if writer is not None:
         writer._exc_context._raise_if_stored()
